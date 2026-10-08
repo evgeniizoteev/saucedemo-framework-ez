@@ -9,8 +9,7 @@ The project uses Python, Playwright, pytest, Page Object Model, Faker, logging, 
 - `pages/` — locators and page actions
 - `tests/` — test scenarios and assertions
 - `data/` — test users and product data
-- `helpers/` — reusable test-data helpers
-- `conftest.py` — pytest fixtures and reporting hooks
+- `conftest.py` — pytest fixtures
 - `.env.example` — safe credentials template
 
 ## Setup
@@ -40,4 +39,12 @@ uvx flake8 .
 
 ## Reports and logs
 
-Test runs create local Allure results, an HTML report, screenshots on failure, and logs. Generated artifacts are excluded from Git.
+Test runs create Allure result files in `allure-results/`,
+screenshots on failure in `artifacts/`, and a log in `logs/test_run.log`.
+Generated artifacts are excluded from Git.
+
+Generating an HTML report requires the separately installed Allure CLI:
+
+```bash
+allure generate allure-results --clean -o allure-report
+```
